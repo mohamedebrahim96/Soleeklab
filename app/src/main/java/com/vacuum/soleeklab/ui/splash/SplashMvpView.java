@@ -4,4 +4,6 @@ public interface SplashMvpView {
     void openLoginActivity();
 
     void openMainActivity();
+    void message();
+
 }

@@ -14,7 +14,7 @@ public class SharedPrefsHelper {
     private final String EMAIL = "Email";
     private final String loggedInMode  = "IS_LOGGED_IN";
 
-    SharedPrefsHelper(Context mContext) {
+    public SharedPrefsHelper(Context mContext) {
         this.mContext = mContext;
         mSharedPreferences = mContext.getSharedPreferences(MY_PREFS, MODE_PRIVATE);
     }

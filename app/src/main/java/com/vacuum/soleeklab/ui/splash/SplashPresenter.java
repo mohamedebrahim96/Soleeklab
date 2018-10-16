@@ -7,22 +7,27 @@ import com.vacuum.soleeklab.data.DataManager;
 public class SplashPresenter implements SplashMvpPresenter {
     SplashMvpView mvpView;
     DataManager manager;
-    public SplashPresenter(SplashMvpView mvpView) {
+    public SplashPresenter(DataManager manager,SplashMvpView mvpView) {
         this.mvpView = mvpView;
         this.manager = manager;
+        manager.saveEmailId("ebrahimm131@gmail.com");
     }
 
 
 
     @Override
     public void decideNextActivity() {
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                // This method will be executed once the timer is over
-                mvpView.openMainActivity();
-            }
-        }, 5000);
+        if (manager.getEmailId()!=null){
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    mvpView.openMainActivity();
+                }
+            }, 5000);
+        }else {
+            mvpView.message();
+        }
+
 
     }
 }

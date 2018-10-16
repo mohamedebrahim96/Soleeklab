@@ -11,18 +11,18 @@ public class DataManager{
     void clear(){
         mSharedPrefsHelper.clear();
     }
-    void saveEmailId(String Email){
+    public void saveEmailId(String Email){
         mSharedPrefsHelper.putEmail(Email);
     }
-    String getEmailId() {
+    public String getEmailId() {
         return mSharedPrefsHelper.getEmail();
     }
 
-    void setLoggedIn() {
+    public void setLoggedIn() {
         mSharedPrefsHelper.setLoggedInMode(true);
     }
 
-    Boolean getLoggedInMode() {
+    public Boolean getLoggedInMode() {
         return mSharedPrefsHelper.loggedInMode();
     }
 }
