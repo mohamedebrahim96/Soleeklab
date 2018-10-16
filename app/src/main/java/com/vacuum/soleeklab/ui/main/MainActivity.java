@@ -1,7 +1,9 @@
-package com.vacuum.soleeklab;
+package com.vacuum.soleeklab.ui.main;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.vacuum.soleeklab.R;
 
 public class MainActivity extends AppCompatActivity {
 
