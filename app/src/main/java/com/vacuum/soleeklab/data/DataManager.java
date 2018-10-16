@@ -1,8 +1,8 @@
-package com.vacuum.mvp3.data
+package com.vacuum.soleeklab.data;
 
-import android.provider.ContactsContract
+import android.provider.ContactsContract;
 
-class DataManager{
+public class DataManager{
 
 
     DataManager(SharedPrefsHelper mSharedPrefsHelper){
@@ -11,7 +11,7 @@ class DataManager{
     void clear(){
         mSharedPrefsHelper.clear();
     }
-    void saveEmailId(Email:String){
+    void saveEmailId(String Email){
         mSharedPrefsHelper.putEmail(ContactsContract.CommonDataKinds.Email);
     }
     String getEmailId() {
