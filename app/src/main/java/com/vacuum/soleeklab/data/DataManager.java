@@ -5,7 +5,7 @@ import android.provider.ContactsContract;
 public class DataManager{
     SharedPrefsHelper mSharedPrefsHelper;
 
-    DataManager(SharedPrefsHelper mSharedPrefsHelper){
+    public DataManager(SharedPrefsHelper mSharedPrefsHelper){
         this.mSharedPrefsHelper = mSharedPrefsHelper;
     }
     void clear(){
