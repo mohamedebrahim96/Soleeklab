@@ -3,10 +3,10 @@ package com.vacuum.soleeklab.data;
 import android.provider.ContactsContract;
 
 public class DataManager{
-
+    SharedPrefsHelper mSharedPrefsHelper;
 
     DataManager(SharedPrefsHelper mSharedPrefsHelper){
-        mSharedPrefsHelper.this = mSharedPrefsHelper;
+        this.mSharedPrefsHelper = mSharedPrefsHelper;
     }
     void clear(){
         mSharedPrefsHelper.clear();
@@ -22,7 +22,7 @@ public class DataManager{
         mSharedPrefsHelper.loggedInMode = true;
     }
 
-    void getLoggedInMode(): Boolean? {
+    Boolean getLoggedInMode() {
         return mSharedPrefsHelper.loggedInMode;
     }
 }
