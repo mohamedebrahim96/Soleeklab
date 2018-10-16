@@ -12,17 +12,17 @@ public class DataManager{
         mSharedPrefsHelper.clear();
     }
     void saveEmailId(String Email){
-        mSharedPrefsHelper.putEmail(ContactsContract.CommonDataKinds.Email);
+        mSharedPrefsHelper.putEmail(Email);
     }
     String getEmailId() {
-        return mSharedPrefsHelper.email;
+        return mSharedPrefsHelper.getEmail();
     }
 
     void setLoggedIn() {
-        mSharedPrefsHelper.loggedInMode = true;
+        mSharedPrefsHelper.setLoggedInMode(true);
     }
 
     Boolean getLoggedInMode() {
-        return mSharedPrefsHelper.loggedInMode;
+        return mSharedPrefsHelper.loggedInMode();
     }
 }

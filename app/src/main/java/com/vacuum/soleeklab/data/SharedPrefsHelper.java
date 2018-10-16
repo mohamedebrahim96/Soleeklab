@@ -7,10 +7,12 @@ import static android.content.Context.MODE_PRIVATE;
 
 public class SharedPrefsHelper {
     SharedPreferences mSharedPreferences;
-
     Context mContext;
+
+    //Consistant
     private final String MY_PREFS = "Soleek";
     private final String EMAIL = "Email";
+    private final String loggedInMode  = "IS_LOGGED_IN";
 
     SharedPrefsHelper(Context mContext) {
         this.mContext = mContext;
@@ -23,20 +25,18 @@ public class SharedPrefsHelper {
     }
 
     Boolean loggedInMode(){
-        return  mSharedPreferences.getBoolean("IS_LOGGED_IN", false);
+        return  mSharedPreferences.getBoolean(loggedInMode, false);
+    }
+    void setLoggedInMode(Boolean loggedIn){
+        mSharedPreferences.edit().putBoolean(loggedInMode, loggedIn).apply();
     }
 
-        get() = mSharedPreferences.getBoolean("IS_LOGGED_IN", false)
-        set(loggedIn) = mSharedPreferences.edit().putBoolean("IS_LOGGED_IN", loggedIn).apply()
-
-
-
-        void clear() {
+    void clear() {
             mSharedPreferences.edit().clear().apply();
-        }
+    }
 
-        void putEmail(String email) {
+    void putEmail(String email) {
             mSharedPreferences.edit().putString(EMAIL, email).apply();
-        }
+    }
 
 }
