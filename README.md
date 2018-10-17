@@ -3,6 +3,7 @@ Soleeklab
 
 [![Build Status](https://travis-ci.org/mohamedebrahim96/Soleeklab.svg?branch=master)](https://travis-ci.org/mohamedebrahim96/Soleeklab.svg?branch=master)  [![Open Source Love](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)](https://opensource.org/licenses/MIT) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
+
 This is a pure Android application. <br>
 It has the following features.
 * Splash Screen. <br>
@@ -13,6 +14,15 @@ It has the following features.
 * Has a Logout Button.
 <br>
 <hr>
+
+
+
+
+Git Flow
+=============== 
+<img src="/git-flow.JPG" />
+
+
 
 Getting Started
 ---------------
@@ -46,16 +56,17 @@ Result
 <img src="/Screenshot_2018-10-17-19-00-21-646.jpeg" height="534" width="300"/><img src="/Screenshot_2018-10-17-19-02-50-906.jpeg" height="534" width="300"/>
     
 
-1. The apk is there in the APK folder and also present in app>release>app-release.apk
-2.Code comprises of three Activities.
-  	a.login.java(main)
-	b.Register.java
-	c.DashboardActivity.java
-3.It comprises of three layouts respectively.
-	a.activity_main.xml
-	b.activity_register.xml
-	c.activity_dashboard.xml
-**********************************************************************************
+
+### Library reference resources:
+1. Glide: https://github.com/bumptech/glide
+2. Dagger2: https://github.com/MindorksOpenSource/android-dagger2-example
+3. Retrofit: https://github.com/square/retrofit
+4. lottie: https://github.com/airbnb/lottie-android
+5. Firebase: https://github.com/firebase/firebase-ios-sdk/tree/master/Firebase/Auth
+6. Calligraphy: https://github.com/chrisjenx/Calligraphy
+7. androidsvg: https://github.com/BigBadaboom/androidsvg
+
+
 
 Developer setup
 ---------------
