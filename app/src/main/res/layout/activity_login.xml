@@ -178,6 +178,14 @@
             android:layout_gravity="center"
             android:id="@+id/buttonRegister"
             />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/register"
+            android:id="@+id/register"
+            android:textColor="@color/white"
+            android:layout_gravity="center"
+            />
 
     </LinearLayout>
 

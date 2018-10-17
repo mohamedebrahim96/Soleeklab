@@ -20,11 +20,13 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.vacuum.soleeklab.R;
 import com.vacuum.soleeklab.ui.main.MainActivity;
+import com.vacuum.soleeklab.ui.signup.SignupActivity;
+
 import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 
 public class LoginActivity extends AppCompatActivity implements LoginMvpView {
 
-    TextView password_Edit,email_Edit;
+    TextView password_Edit,email_Edit,register;
     Button mButtonInput;
     Loginpresenter presenter;
     private FirebaseAuth firebase;
@@ -54,8 +56,15 @@ public class LoginActivity extends AppCompatActivity implements LoginMvpView {
                         , email_Edit.getText().toString().trim());
             }
         });
+        register.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(LoginActivity.this, SignupActivity.class);
+                startActivity(i);
+                finish();
+            }
+        });
     }
-
     private void initView(){
         email_Edit =  findViewById(R.id.email);
         password_Edit =  findViewById(R.id.password);
@@ -63,8 +72,9 @@ public class LoginActivity extends AppCompatActivity implements LoginMvpView {
         presenter = new Loginpresenter(this);
         animation_view_email = findViewById(R.id.animation_view_email);
         animation_view_password = findViewById(R.id.animation_view_password);
-    }
+        register = findViewById(R.id.register);
 
+    }
     private void validateFields2() {
         email_Edit.addTextChangedListener(new TextWatcher() {
             @Override
@@ -103,25 +113,20 @@ public class LoginActivity extends AppCompatActivity implements LoginMvpView {
             }
         });
     }
-
     @Override
     public void showValidationError() {
         Toast.makeText(this, "input not valid", Toast.LENGTH_SHORT).show();
     }
-
     @Override
     public void inputuccess() {
         Toast.makeText(this, "succes", Toast.LENGTH_SHORT).show();
         Intent i = new Intent(this, MainActivity.class);
         startActivity(i);
         finish();
-
     }
-
     @Override
     public void inputError() {
         Toast.makeText(this, "input error", Toast.LENGTH_SHORT).show();
-
     }
     @Override
     public void login_server() {

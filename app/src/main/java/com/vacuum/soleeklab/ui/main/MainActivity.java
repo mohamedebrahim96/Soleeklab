@@ -21,6 +21,7 @@ import java.util.List;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 
 public class MainActivity extends AppCompatActivity {
     private FirebaseAuth auth;
@@ -58,6 +59,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initview() {
+        CalligraphyConfig.initDefault(new CalligraphyConfig.Builder()
+                .setDefaultFontPath("fonts/brownregular.ttf")
+                .setFontAttrId(R.attr.fontPath)
+                .build()
+        );
         log_out =  findViewById(R.id.log_out);
         recyclerView =  findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));

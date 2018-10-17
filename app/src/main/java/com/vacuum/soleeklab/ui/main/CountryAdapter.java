@@ -1,7 +1,10 @@
 package com.vacuum.soleeklab.ui.main;
 
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.graphics.drawable.PictureDrawable;
+import android.support.v4.graphics.drawable.RoundedBitmapDrawable;
+import android.support.v4.graphics.drawable.RoundedBitmapDrawableFactory;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +14,8 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.RequestBuilder;
+import com.bumptech.glide.request.RequestOptions;
+import com.bumptech.glide.request.target.BitmapImageViewTarget;
 import com.vacuum.soleeklab.R;
 import com.vacuum.soleeklab.data.network.model.Country;
 import com.vacuum.soleeklab.utils.SvgSoftwareLayerSetter;
@@ -60,20 +65,20 @@ public class CountryAdapter extends RecyclerView.Adapter<CountryAdapter.CountryV
     }
 
     @Override
-    public void onBindViewHolder(CountryViewHolder holder, int position) {
+    public void onBindViewHolder(final CountryViewHolder holder, int position) {
         Country c = countriesList.get(position);
         holder.name.setText(c.getName());
-        holder.capital.setText(c.getCapital());
-        holder.language.setText(c.getLanguages().get(0).getName());
-        holder.currency.setText(c.getCurrencies().get(0).getName());
+        holder.capital.setText("Capital:"+c.getCapital());
+        holder.language.setText("Language:"+c.getLanguages().get(0).getName());
+        holder.currency.setText("Currency:"+c.getCurrencies().get(0).getName());
 
 
-        /*Glide.with(mContext)
-                .load("https://avatars2.githubusercontent.com/u/16405013?s=460&v=4")
+        requestBuilder
+                .load(c.getFlag())
                 .apply(RequestOptions.circleCropTransform())
-                .into(holder.flag);*/
+                .into(holder.flag);
 
-        requestBuilder.load(c.getFlag()).into(holder.flag);
+
     }
 
     @Override
