@@ -19,6 +19,11 @@ public class LoginActivity extends AppCompatActivity implements LoginMvpView {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
+        CalligraphyConfig.initDefault(new CalligraphyConfig.Builder()
+                .setDefaultFontPath("fonts/brownregular.ttf")
+                .setFontAttrId(R.attr.fontPath)
+                .build()
+        );
         initView();
         mButtonInput.setOnClickListener(new View.OnClickListener() {
             @Override

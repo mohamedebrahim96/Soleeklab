@@ -35,6 +35,7 @@ dependencies {
 
     implementation 'com.google.firebase:firebase-database:16.0.3'
     implementation 'com.airbnb.android:lottie:2.5.1'
+    implementation 'uk.co.chrisjenx:calligraphy:2.3.0'
 
 
 
