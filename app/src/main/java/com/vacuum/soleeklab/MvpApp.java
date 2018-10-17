@@ -1,18 +1,20 @@
 package com.vacuum.soleeklab;
 
 import android.app.Application;
-import android.content.Context;
 
 import com.vacuum.soleeklab.data.DataManager;
 import com.vacuum.soleeklab.data.SharedPrefsHelper;
 
-import java.util.logging.Level;
+import javax.inject.Inject;
 
 public class MvpApp extends Application {
 
 
-    public DataManager dataManager;
-    //private ApplicationComponent mApplicationComponent;
+
+    @Inject
+    DataManager mDataManager;
+
+    private ApplicationComponent mApplicationComponent;
     @Override
     public void onCreate() {
         super.onCreate();
@@ -26,8 +28,7 @@ public class MvpApp extends Application {
 
     }
 
-    /*public DataManager getDatamanager(){
-        return dataManager;
-    }*/
-
+    public ApplicationComponent getComponent() {
+        return mApplicationComponent;
+    }
 }

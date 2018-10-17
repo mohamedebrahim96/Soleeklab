@@ -23,6 +23,8 @@ public class SplashActivity extends AppCompatActivity implements SplashMvpView{
         setContentView(R.layout.activity_splash);
         SharedPrefsHelper sharedPrefsHelper = new SharedPrefsHelper(getApplicationContext());
         dataManager = new DataManager(sharedPrefsHelper);
+
+        //dataManager = new MvpApp().getDatamanager();
         mSplashPresenter = new SplashPresenter(dataManager,this);
         //mSplashPresenter.onAttach(this);
         mSplashPresenter.decideNextActivity();

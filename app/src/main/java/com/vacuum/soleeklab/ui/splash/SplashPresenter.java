@@ -10,7 +10,7 @@ public class SplashPresenter implements SplashMvpPresenter {
     public SplashPresenter(DataManager manager,SplashMvpView mvpView) {
         this.mvpView = mvpView;
         this.manager = manager;
-        manager.saveEmailId("ebrahimm131@gmail.com");
+        //manager.saveEmailId("ebrahimm131@gmail.com");
     }
 
 
