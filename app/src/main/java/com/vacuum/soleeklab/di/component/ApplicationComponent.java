@@ -15,7 +15,7 @@ import dagger.Component;
 @Component(modules = { ApplicationModule.class })
 public interface ApplicationComponent {
 
-    @Component.Builder
+    /*@Component.Builder
     interface Builder {
         @BindsInstance
         Builder application(MvpApp application);
@@ -23,11 +23,11 @@ public interface ApplicationComponent {
     }
     //void inject(MvpApp app);
 
-    void inject(SplashActivity splashActivity);
+    //void inject(SplashActivity splashActivity);
     @ApplicationContext
     Context context();
 
     Application application();
 
-    DataManager getDataManager();
+    DataManager getDataManager();*/
 }

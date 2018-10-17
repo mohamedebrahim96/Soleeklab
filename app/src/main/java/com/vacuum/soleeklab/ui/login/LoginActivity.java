@@ -1,18 +1,23 @@
 package com.vacuum.soleeklab.ui.login;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.vacuum.soleeklab.R;
+import com.vacuum.soleeklab.ui.main.MainActivity;
+import com.vacuum.soleeklab.ui.splash.SplashActivity;
+
+import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 
 public class LoginActivity extends AppCompatActivity implements LoginMvpView {
 
     TextView full_name,password,phone,email;
     Button mButtonInput;
-    View mView;
     Loginpresenter presenter;
 
     @Override
@@ -43,23 +48,27 @@ public class LoginActivity extends AppCompatActivity implements LoginMvpView {
         full_name = (TextView) findViewById(R.id.full_name);
         password = (TextView) findViewById(R.id.password);
         phone = (TextView) findViewById(R.id.phone);
-        mButtonInput = (Button) findViewById(R.id.mButtonInput);
-        mView = findViewById(R.id.view);
+        mButtonInput = (Button) findViewById(R.id.buttonRegister);
         presenter = new Loginpresenter(this);
     }
 
     @Override
     public void showValidationError() {
-        Snackbar.make(mView,getResources().getString(R.string.input_not_valid),Snackbar.LENGTH_SHORT).show();
+        Toast.makeText(this, "input not valid", Toast.LENGTH_SHORT).show();
     }
 
     @Override
     public void inputuccess() {
-        Snackbar.make(mView,getResources().getString(R.string.input_succes),Snackbar.LENGTH_SHORT).show();
+        Toast.makeText(this, "succes", Toast.LENGTH_SHORT).show();
+        Intent i = new Intent(this, MainActivity.class);
+        startActivity(i);
+        finish();
+
     }
 
     @Override
     public void inputError() {
-        Snackbar.make(mView,getResources().getString(R.string.input_error),Snackbar.LENGTH_SHORT).show();
+        Toast.makeText(this, "input error", Toast.LENGTH_SHORT).show();
+
     }
 }

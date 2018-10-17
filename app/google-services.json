@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "516544717149",
+    "firebase_url": "https://soleek-1b0a6.firebaseio.com",
+    "project_id": "soleek-1b0a6",
+    "storage_bucket": "soleek-1b0a6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:516544717149:android:fd1ece6eb9b05b7b",
+        "android_client_info": {
+          "package_name": "com.vacuum.soleeklab"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "516544717149-noskq7155u21btjvfm771ugjttv0ebkp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAQ7y-sOwyxT2cZ-Yewb3wZg1gq7iCxC0o"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

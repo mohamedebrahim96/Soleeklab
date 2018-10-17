@@ -4,10 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Toast;
-
-import com.vacuum.soleeklab.MvpApp;
 import com.vacuum.soleeklab.R;
-import com.vacuum.soleeklab.ui.main.MainActivity;
+import com.vacuum.soleeklab.ui.login.LoginActivity;
 
 public class SplashActivity extends AppCompatActivity implements SplashMvpView{
 
@@ -19,25 +17,18 @@ public class SplashActivity extends AppCompatActivity implements SplashMvpView{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
-        ((MvpApp)getApplication())
-                .getComponent()
-                .inject(this);
         mSplashPresenter = new SplashPresenter(this);
         mSplashPresenter.decideNextActivity();
 
     }
 
 
-
-
     @Override
-    public void openLoginActivity() {
-
-    }
+    public void openLoginActivity() {    }
 
     @Override
     public void openMainActivity() {
-        Intent i = new Intent(SplashActivity.this, MainActivity.class);
+        Intent i = new Intent(SplashActivity.this, LoginActivity.class);
         startActivity(i);
         finish();
     }
