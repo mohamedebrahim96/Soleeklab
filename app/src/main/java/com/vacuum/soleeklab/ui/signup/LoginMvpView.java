@@ -1,4 +1,4 @@
-package com.vacuum.soleeklab.ui.login;
+package com.vacuum.soleeklab.ui.signup;
 
 public interface LoginMvpView {
     void showValidationError();

@@ -1,9 +1,6 @@
-package com.vacuum.soleeklab.ui.login;
+package com.vacuum.soleeklab.ui.signup;
 
-import android.text.TextUtils;
-import com.google.firebase.auth.FirebaseAuth;
-
-public class Loginpresenter implements LoginMvpPresenter{
+public class Loginpresenter implements LoginMvpPresenter {
     private LoginMvpView loginMvpView;
 
 
