@@ -20,6 +20,10 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'com.android.support:appcompat-v7:27.1.1'
+    implementation "com.android.support:design:27.1.1"
+    implementation "com.android.support:recyclerview-v7:27.1.1"
+
+
     implementation 'com.android.support.constraint:constraint-layout:1.1.3'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
@@ -40,6 +44,21 @@ dependencies {
 
     implementation 'com.airbnb.android:lottie:2.5.1'
     implementation 'uk.co.chrisjenx:calligraphy:2.3.0'
+
+    //Retrofit2
+    compile 'com.squareup.retrofit2:retrofit:2.1.0'
+    compile 'com.google.code.gson:gson:2.6.2'
+    compile 'com.squareup.retrofit2:converter-gson:2.1.0'
+
+    //butterknife
+    //implementation 'com.jakewharton:butterknife:9.0.0-rc1'
+    //annotationProcessor 'com.jakewharton:butterknife-compiler:9.0.0-rc1'
+
+    //Glide
+    implementation 'com.github.bumptech.glide:glide:4.8.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.8.0'
+    implementation 'com.caverock:androidsvg:1.2.1'
+
 
 }
 apply plugin: 'com.google.gms.google-services'
