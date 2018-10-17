@@ -19,11 +19,11 @@ import com.vacuum.soleeklab.ui.main.MainActivity;
 
 import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 
-public class LoginActivity extends AppCompatActivity implements LoginMvpView {
+public class SignupActivity extends AppCompatActivity implements SignupMvpView {
 
     TextView full_name,password_Edit,phone,email_Edit;
     Button mButtonInput;
-    Loginpresenter presenter;
+    Signuppresenter presenter;
     private FirebaseAuth firebase;
 
     @Override
@@ -54,7 +54,7 @@ public class LoginActivity extends AppCompatActivity implements LoginMvpView {
         password_Edit =  findViewById(R.id.password);
         phone =  findViewById(R.id.phone);
         mButtonInput =  findViewById(R.id.buttonRegister);
-        presenter = new Loginpresenter(this);
+        presenter = new Signuppresenter(this);
     }
 
     @Override
@@ -85,13 +85,13 @@ public class LoginActivity extends AppCompatActivity implements LoginMvpView {
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-                        Toast.makeText(LoginActivity.this, "Welcome, "+full_name.toString().trim(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(SignupActivity.this, "Welcome, "+full_name.toString().trim(), Toast.LENGTH_SHORT).show();
                         if (!task.isSuccessful()) {
-                            Toast.makeText(LoginActivity.this, "failed" + task.getException(),
+                            Toast.makeText(SignupActivity.this, "failed" + task.getException(),
                                     Toast.LENGTH_SHORT).show();
                             Log.e("FIRE",task.getException().toString());
                         } else {
-                            startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                            startActivity(new Intent(SignupActivity.this, MainActivity.class));
                             finish();
                         }
                     }

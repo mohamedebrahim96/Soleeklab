@@ -4,13 +4,16 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
+import android.text.Editable;
 import android.text.TextUtils;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -21,10 +24,11 @@ import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 
 public class LoginActivity extends AppCompatActivity implements LoginMvpView {
 
-    TextView full_name,password_Edit,phone,email_Edit;
+    TextView password_Edit,email_Edit;
     Button mButtonInput;
     Loginpresenter presenter;
     private FirebaseAuth firebase;
+    private LottieAnimationView animation_view_fullname, animation_view_password, animation_view_email;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,25 +45,63 @@ public class LoginActivity extends AppCompatActivity implements LoginMvpView {
                 .build()
         );
         initView();
+        validateFields2();
         firebase = FirebaseAuth.getInstance();
         mButtonInput.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                presenter.input(full_name.getText().toString().trim()
-                        , password_Edit.getText().toString().trim()
-                        , email_Edit.getText().toString().trim()
-                        , phone.getText().toString().trim());
+                presenter.input(password_Edit.getText().toString().trim()
+                        , email_Edit.getText().toString().trim());
             }
         });
     }
 
     private void initView(){
-        full_name =  findViewById(R.id.full_name);
         email_Edit =  findViewById(R.id.email);
         password_Edit =  findViewById(R.id.password);
-        phone =  findViewById(R.id.phone);
         mButtonInput =  findViewById(R.id.buttonRegister);
         presenter = new Loginpresenter(this);
+        animation_view_email = findViewById(R.id.animation_view_email);
+        animation_view_password = findViewById(R.id.animation_view_password);
+    }
+
+    private void validateFields2() {
+        email_Edit.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                if (email_Edit.getText().toString().contains("@") && email_Edit.getText().toString().contains(".com")) {
+                    animation_view_email.setAnimation(R.raw.success);
+                    animation_view_email.playAnimation();
+                } else {
+                    animation_view_email.setProgress(0);
+                }
+            }
+        });
+        password_Edit.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) { }
+            @Override
+            public void afterTextChanged(Editable s) {
+                if (password_Edit.getText().length() >= 8) {
+                    animation_view_password.setAnimation(R.raw.success);
+                    animation_view_password.playAnimation();
+                } else {
+                    animation_view_password.setProgress(0);
+                    password_Edit.setError("less than 8");
+
+                }
+            }
+        });
     }
 
     @Override
@@ -108,11 +150,7 @@ public class LoginActivity extends AppCompatActivity implements LoginMvpView {
                         // signed in user can be handled in the listener.
                         if (!task.isSuccessful()) {
                             // there was an error
-                            if (password.length() < 6) {
-                                inputPassword.setError(getString(R.string.minimum_password));
-                            } else {
-                                Toast.makeText(LoginActivity.this, getString(R.string.auth_failed), Toast.LENGTH_LONG).show();
-                            }
+                            Toast.makeText(LoginActivity.this, "auth_failed", Toast.LENGTH_LONG).show();
                         } else {
                             Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                             startActivity(intent);

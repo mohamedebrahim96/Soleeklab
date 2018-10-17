@@ -1,6 +1,6 @@
 package com.vacuum.soleeklab.ui.signup;
 
-public interface LoginMvpView {
+public interface SignupMvpView {
     void showValidationError();
     void inputuccess();
     void inputError();
