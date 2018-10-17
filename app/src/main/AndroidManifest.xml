@@ -12,13 +12,12 @@
         android:name=".MvpApp"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme"
+        android:theme="@android:style/Theme.Black.NoTitleBar"
         tools:ignore="GoogleAppIndexingWarning">
         <activity android:name=".ui.main.MainActivity"/>
 
         <activity
             android:name=".ui.splash.SplashActivity"
-            android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen"
             >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
