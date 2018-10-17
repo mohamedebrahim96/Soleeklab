@@ -19,7 +19,7 @@ public class SplashPresenter implements SplashMvpPresenter {
             public void run() {
                 mvpView.openMainActivity();
             }
-        }, 5000);
+        }, 3000);
     }
 
 }
