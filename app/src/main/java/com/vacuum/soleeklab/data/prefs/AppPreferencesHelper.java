@@ -1,20 +1,26 @@
-package com.vacuum.soleeklab.data;
+package com.vacuum.soleeklab.data.prefs;
 
 import android.content.Context;
 import android.content.SharedPreferences;
 
+import com.vacuum.soleeklab.di.ApplicationContext;
+import com.vacuum.soleeklab.di.PreferenceInfo;
+
+import javax.inject.Inject;
+
 import static android.content.Context.MODE_PRIVATE;
 
-public class SharedPrefsHelper {
+public class AppPreferencesHelper {
     SharedPreferences mSharedPreferences;
     Context mContext;
 
     //Consistant
-    private final String MY_PREFS = "Soleek";
+    //private final String MY_PREFS = "Soleek";
     private final String EMAIL = "Email";
     private final String loggedInMode  = "IS_LOGGED_IN";
 
-    public SharedPrefsHelper(Context mContext) {
+    @Inject
+    public AppPreferencesHelper(@ApplicationContext Context mContext, @PreferenceInfo String MY_PREFS) {
         this.mContext = mContext;
         mSharedPreferences = mContext.getSharedPreferences(MY_PREFS, MODE_PRIVATE);
     }

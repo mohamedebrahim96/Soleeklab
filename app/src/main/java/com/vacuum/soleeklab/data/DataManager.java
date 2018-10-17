@@ -1,28 +1,24 @@
 package com.vacuum.soleeklab.data;
 
-import android.provider.ContactsContract;
+import android.database.Observable;
 
-public class DataManager{
-    SharedPrefsHelper mSharedPrefsHelper;
+import com.vacuum.soleeklab.data.prefs.Helper;
+import com.vacuum.soleeklab.data.prefs.PreferencesHelper;
+import com.vacuum.soleeklab.data.prefs.SharedPrefsHelper;
 
-    public DataManager(SharedPrefsHelper mSharedPrefsHelper){
-        this.mSharedPrefsHelper = mSharedPrefsHelper;
-    }
-    void clear(){
-        mSharedPrefsHelper.clear();
-    }
-    public void saveEmailId(String Email){
-        mSharedPrefsHelper.putEmail(Email);
-    }
-    public String getEmailId() {
-        return mSharedPrefsHelper.getEmail();
-    }
+public interface DataManager extends PreferencesHelper{
 
-    public void setLoggedIn() {
-        mSharedPrefsHelper.setLoggedInMode(true);
-    }
+    void updateApiHeader(Long userId, String accessToken);
 
-    public Boolean getLoggedInMode() {
-        return mSharedPrefsHelper.loggedInMode();
-    }
+    void setUserAsLoggedOut();
+
+    void updateUserInfo(
+            String accessToken,
+            Long userId,
+            Boolean loggedInMode,
+            String userName,
+            String email,
+            String profilePicPath);
+
+    boolean LoggedInMode();
 }

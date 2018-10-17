@@ -2,32 +2,31 @@ package com.vacuum.soleeklab;
 
 import android.app.Application;
 
-import com.vacuum.soleeklab.data.DataManager;
-import com.vacuum.soleeklab.data.SharedPrefsHelper;
+import com.vacuum.soleeklab.di.component.ApplicationComponent;
+import com.vacuum.soleeklab.di.component.DaggerApplicationComponent;
 
 import javax.inject.Inject;
 
 public class MvpApp extends Application {
 
 
-
-    @Inject
-    DataManager mDataManager;
-
+    private MvpApp Instance;
     private ApplicationComponent mApplicationComponent;
     @Override
     public void onCreate() {
         super.onCreate();
-        /*mApplicationComponent = DaggerApplicationComponent.builder()
-                .applicationModule(new ApplicationModule(this)).build();*/
-
-        //mApplicationComponent.inject(this);
-
-        SharedPrefsHelper sharedPrefsHelper = new SharedPrefsHelper(getApplicationContext());
-        dataManager = new DataManager(sharedPrefsHelper);
-
+        initializeDagger();
     }
-
+    private void initializeDagger() {
+        Instance = this;
+        mApplicationComponent = DaggerApplicationComponent
+                .builder()
+                .application(this)
+                .build();
+    }
+    MvpApp getInstance(){
+        return Instance;
+    }
     public ApplicationComponent getComponent() {
         return mApplicationComponent;
     }

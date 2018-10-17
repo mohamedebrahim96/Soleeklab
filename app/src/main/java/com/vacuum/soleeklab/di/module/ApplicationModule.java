@@ -4,8 +4,14 @@ package com.vacuum.soleeklab.di.module;
 import android.app.Application;
 import android.content.Context;
 
-import com.vacuum.soleeklab.R;
+import com.vacuum.soleeklab.MvpApp;
+import com.vacuum.soleeklab.data.AppDataManager;
 import com.vacuum.soleeklab.data.DataManager;
+import com.vacuum.soleeklab.data.prefs.AppPreferencesHelper;
+import com.vacuum.soleeklab.data.prefs.PreferencesHelper;
+import com.vacuum.soleeklab.di.ApplicationContext;
+import com.vacuum.soleeklab.di.PreferenceInfo;
+import com.vacuum.soleeklab.utils.AppConstants;
 
 import javax.inject.Singleton;
 
@@ -32,7 +38,6 @@ public class ApplicationModule {
         return mApplication;
     }
 
-
     @Provides
     @PreferenceInfo
     String providePreferenceName() {
@@ -45,6 +50,12 @@ public class ApplicationModule {
         return appDataManager;
     }
 
+
+    @Provides
+    @Singleton
+    PreferencesHelper providePreferencesHelper(AppPreferencesHelper appPreferencesHelper) {
+        return (PreferencesHelper) appPreferencesHelper;
+    }
 
 
 
