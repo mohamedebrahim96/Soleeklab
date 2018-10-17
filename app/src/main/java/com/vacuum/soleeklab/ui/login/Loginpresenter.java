@@ -11,7 +11,7 @@ public class Loginpresenter implements LoginMvpPresenter{
         this.loginMvpView = loginMvpView;
     }
     @Override
-    public void input(String name,String email ,String password,String phone) {
+    public void input(String email ,String password) {
         /*if(TextUtils.isEmpty(email) || (password.length() < 8) || TextUtils.isEmpty(phone)){
             loginMvpView.showValidationError();
         }

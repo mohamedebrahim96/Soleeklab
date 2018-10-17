@@ -1,10 +1,10 @@
 package com.vacuum.soleeklab.ui.signup;
 
-public class Loginpresenter implements LoginMvpPresenter {
-    private LoginMvpView loginMvpView;
+public class Signuppresenter implements SignupMvpPresenter {
+    private SignupMvpView loginMvpView;
 
 
-    public Loginpresenter(LoginMvpView loginMvpView) {
+    public Signuppresenter(SignupMvpView loginMvpView) {
         this.loginMvpView = loginMvpView;
     }
     @Override
